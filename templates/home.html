@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Price Predictor</title>
+  </head>
+
+  <body style="background: #000000">
+    <nav class="navbar">        <!--Creating a navbar-->
+        <h1 class="navbar-brand text-light"><strong>PRICE PREDICTOR APP</strong></h1>
+
+    </nav>
+    <br>
+
+     <div class="col-sm-6" style="margin-top:10%;margin-left:7%">
+      <form class="form" action="/predict" method="POST" style="text-align:center;font-weight:bold;font-size:20px;color: #FFFFFF">
+          <label >Select the company:</label><br>
+            <select name="company" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                <option value="Maruti">Maruti</option>
+                <option value="Mahindra">Mahindra</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Honda">Honda</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Renault">Renault</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="Ford">Ford</option>
+                <option value="Tata">Tata</option>
+                <option value="BMW">BMW</option>
+                <option value="Volkswagen">Volkswagen</option>
+                <option value="Nissan">Nissan</option>
+                <option value="Skoda">Skoda</option>
+                <option value="Jeep">Jeep</option>
+                <option value="Ssangyong">Ssangyong</option>
+                <option value="Fiat">Fiat</option>
+                <option value="Datsun">Datsun</option>
+                <option value="Mitsubishi">Mitsubishi</option>
+                <option value="Audi">Audi</option>
+                <option value="Volvo">Volvo</option>
+                <option value="Audi">Audi</option>
+                <option value="Premier">Premier</option>
+            </select>
+        <br>
+
+
+
+          <label >Select Fuel Type:</label><br>
+            <select name="fuel" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                <option value="CNG">CNG</option>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="LPG">LPG</option>
+                <option value="Electric">Electric</option>
+            </select>
+          <br>
+
+          <label class="year">Year of Purchase :</label><br>
+        <input type="text" name='year' class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Enter the year" value="" required="">
+
+
+          <label class="distance">Enter total distance travelled :</label><br>
+        <input type="text" name='distance' class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Enter in kilometers" value="" required="">
+        <br>
+          <button class="btn btn-primary btn-lg "  type="submit">Predict</button>
+      
+      </form>
+
+<br><br><br><br><br>
+
+      {% if label==1 %}
+        <div class="content" style="text-align:center">
+            <h3 style="color:white;font-size:25px;font-weight:bold;text-shadow: 2px 2px 5px red">You can try selling your Old Car at Rs. {{predict}}</h3><br>
+        </div>
+
+      {% elif label==0 %}
+        <div class="content">
+            <h3 style="color:red;font-size:40px;font-weight:bold">Please provide valid Informations</h3>
+        </div>
+      {% endif %}
+  </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
